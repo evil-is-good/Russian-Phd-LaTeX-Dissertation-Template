@@ -1,0 +1,122 @@
+%%% Поля и разметка страницы %%%
+\documentclass[a4paper,12pt]{article}
+\usepackage{lscape}		% Для включения альбомных страниц
+%
+%%% Кодировки и шрифты %%%
+\usepackage{cmap}						% Улучшенный поиск русских слов в полученном pdf-файле
+\usepackage[T2A]{fontenc}				% Поддержка русских букв
+\usepackage[utf8]{inputenc}				% Кодировка utf8
+\usepackage[english, russian]{babel}	% Языки: русский, английский
+%\usepackage{pscyr}						% Красивые русские шрифты
+%
+%%% Математические пакеты %%%
+\usepackage{amsthm,amsfonts,amsmath,amssymb,amscd} % Математические дополнения от AMS
+
+%%% Оформление абзацев %%%
+\usepackage{indentfirst} % Красная строка
+
+%%% Цвета %%%
+\usepackage[usenames]{color}
+\usepackage{color}
+\usepackage{colortbl}
+
+%%% Таблицы %%%
+\usepackage{longtable}					% Длинные таблицы
+\usepackage{multirow,makecell,array}	% Улучшенное форматирование таблиц
+
+%%% Общее форматирование
+\usepackage[singlelinecheck=off,center]{caption}	% Многострочные подписи
+\usepackage{soul}									% Поддержка переносоустойчивых подчёркиваний и зачёркиваний
+
+%%% Библиография %%%
+\usepackage{cite} % Красивые ссылки на литературу
+
+%%% Гиперссылки %%%
+\usepackage[plainpages=false,pdfpagelabels=false]{hyperref}
+\definecolor{linkcolor}{rgb}{0.9,0,0}
+\definecolor{citecolor}{rgb}{0,0.6,0}
+\definecolor{urlcolor}{rgb}{0,0,1}
+\hypersetup{
+    colorlinks, linkcolor={linkcolor},
+    citecolor={citecolor}, urlcolor={urlcolor}
+}
+\usepackage{hyperref}
+% \usepackage{url}
+
+%%% Изображения %%%
+\usepackage{graphicx}		% Подключаем пакет работы с графикой
+\graphicspath{{images/}}	% Пути к изображениям
+
+%%% Выравнивание и переносы %%%
+\sloppy					% Избавляемся от переполнений
+\clubpenalty=10000		% Запрещаем разрыв страницы после первой строки абзаца
+\widowpenalty=10000		% Запрещаем разрыв страницы после последней строки абзаца
+
+%%% Библиография %%%
+\makeatletter
+\bibliographystyle{/home/primat/repositories/dissertation/BibTeX-Styles/utf8gost705u}	% Оформляем библиографию в соответствии с ГОСТ 7.0.5
+% \bibliography{../biblio/authorpapersVAK}
+% \renewcommand{\@biblabel}[1]{#1.}	% Заменяем библиографию с квадратных скобок на точку:
+% \addbibresource{../biblio/authorpapersVAK.bib}
+\makeatother
+% \makeatletter
+% \bibliographystyle{utf8gost705u}	% Оформляем библиографию в соответствии с ГОСТ 7.0.5
+% \renewcommand{\@biblabel}[1]{#1.}	% Заменяем библиографию с квадратных скобок на точку:
+% \makeatother
+
+%%% Колонтитулы %%%
+\let\Sectionmark\sectionmark
+\def\sectionmark#1{\def\Sectionname{#1}\Sectionmark{#1}}
+\makeatletter
+\newcommand*{\currentname}{\@currentlabelname}
+\renewcommand{\@oddhead}{\it \vbox{\hbox to \textwidth%
+    % {\hfil Фамилия И.О. --- Короткое название черновика\hfil\strut}\hbox to \textwidth%
+    {\today \hfil \thesection~\Sectionname\strut}\hrule}}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\include{proceeding}
+
+% \section{Описание}
+% % В обобщённом виде, для анизотропного матенриала, закон Гука имееет вид:
+% % \begin{equation}
+% %     \label{eq1}
+% %     \sigma_{ij} = C_{ijkl}\varepsilon_{kl}
+% % \end{equation}
+% % Тензор $C_{ijkl}$ - тензор упругости составленный из материальных констант, всего их 81.
+% % В силу симметрии тензоров $\varepsilon_{ij}$ и $\sigma_{ij}$:
+% % $$
+% % C_{ijkl} = C_{jikl} = C_{ijlk} = C_{jilk} 
+% % $$
+% % Количество независимых констант сокращается до 36. Далее из условия потенциальности тензора напряженияй:
+% % $$
+% % W=\frac{1}{2}C_{ijkl}\varepsilon_{ij}\varepsilon_{kl}
+% % $$
+% % Следует что 
+% % $$
+% % C_{ijkl} = C_{klij}
+% % $$
+% % Значит что всего независимых констант 21. 
+% \cite{vakbib1},dfvdfvscdc
+% \cite{vakbib2}
+% \cite{vakbib3}
+% \cite{bib1}
+% \cite{bib2}
+% \cite{bib3}
+% \cite{bib4}
+% \cite{bib5}
+% \clearpage
+% % \addbibresource{../../biblio/authorpapersVAK.bib}
+% % \addbibresource{../../biblio/authorpapers.bib}
+% % \printbibliography
+% \bibliography{../../biblio/authorpapersVAK,../../biblio/authorpapers}
+% % \bibliography{authorpapersVAK,authorpapers}
+% % \bibliography{../../biblio/authorpapersVAK}
+% % \bibliography{../../biblio/authorpapers}
+%
+% % LFMJDDOOCDP \cite{vakbib1} sdfvdfvfvb
+% % \cite{vakbib1}
+
+\end{document}

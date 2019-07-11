@@ -1,0 +1,181 @@
+{~}\bigskip
+\begin{center}
+    \Huge{
+    Конвертирование материальных констант 
+$C_{ijkl}$ 
+в технические: 
+$E$, $\nu$
+и пр.}
+\end{center}
+
+\section{Описание}
+В обобщённом виде, для анизотропного матенриала, закон Гука имееет вид:
+\begin{equation}
+    \label{eq1}
+    \sigma_{ij} = C_{ijkl}\varepsilon_{kl}
+\end{equation}
+Тензор 
+$C_{ijkl}$ 
+- тензор упругости составленный из материальных констант, всего их 81.
+В силу симметрии тензоров 
+$\varepsilon_{ij}$ 
+и 
+$\sigma_{ij}$:
+
+$$
+C_{ijkl} = C_{jikl} = C_{ijlk} = C_{jilk} 
+$$
+
+Количество независимых констант сокращается до 36. Далее из условия потенциальности тензора напряженияй:
+$$
+W=\frac{1}{2}C_{ijkl}\varepsilon_{ij}\varepsilon_{kl}
+$$
+Следует что 
+$$
+C_{ijkl} = C_{klij}
+$$
+Значит что всего независимых констант 21.
+
+Обратное соотношение имеет вид:
+$$
+\varepsilon_{ij} = D_{ijkl}\sigma_{kl}
+$$
+Где 
+$D$ 
+- тензор податливости.
+
+Записав тензоры 
+$\varepsilon_{ij}$ 
+и 
+$\sigma_{ij}$ 
+как вектора 
+$\varepsilon_{\alpha}$ 
+и
+$\sigma_{\alpha}$
+, где 
+$\alpha \in \{xx, yy, zz, xy, xz, yz\}$
+, представим соотношение \ref{eq1} в виде:
+$$
+    \sigma_{\alpha} = C_{\alpha\beta}\varepsilon_{\beta}
+$$
+А обратное:
+$$
+    \varepsilon_{\alpha} = D_{\alpha\beta}\sigma_{\beta}
+$$
+$$
+D_{\alpha\beta} = C^{-1}_{\alpha\beta}
+$$
+Последнее, в более традиционной форме, записанное через технические константы, представляет собой такую систему:
+\begin{equation*}
+    \begin{cases}
+        \varepsilon_{xx} = \frac{1}{E_x}\sigma_{xx} - \frac{\nu_{yx}}{E_y}\sigma_{yy} - \frac{\nu_{zx}}{E_z}\sigma_{zz} + \frac{\varkappa^1_{xyx}}{2G_{xy}}\sigma_{xy} + \frac{\varkappa^1_{xzx}}{2G_{xz}}\sigma_{xz} + \frac{\varkappa^1_{yzx}}{2G_{yz}}\sigma_{yz}\\
+        \varepsilon_{yy} = - \frac{\nu_{xy}}{E_x}\sigma_{xx} + \frac{1}{E_y}\sigma_{yy} - \frac{\nu_{zy}}{E_z}\sigma_{zz} + \frac{\varkappa^1_{xyy}}{2G_{xy}}\sigma_{xy} + \frac{\varkappa^1_{xzy}}{2G_{xz}}\sigma_{xz} + \frac{\varkappa^1_{yzy}}{2G_{yz}}\sigma_{yz}\\
+        \varepsilon_{xx} = - \frac{\nu_{xz}}{E_x}\sigma_{xx} - \frac{\nu_{yz}}{E_y}\sigma_{yy} + \frac{1}{E_z}\sigma_{zz} + \frac{\varkappa^1_{xyx}}{2G_{xz}}\sigma_{xy} + \frac{\varkappa^1_{xzz}}{2G_{xz}}\sigma_{xz} + \frac{\varkappa^1_{yzz}}{2G_{yz}}\sigma_{yz}\\
+        \varepsilon_{xy} = \frac{\varkappa^2_{xxy}}{E_x}\sigma_{xx} + \frac{\varkappa^2_{yxy}}{E_y}\sigma_{yy} + \frac{\varkappa^2_{zxy}}{E_z}\sigma_{zz} + \frac{1}{2G_{xy}}\sigma_{xy} + \frac{\eta_{xzxy}}{2G_{xz}}\sigma_{xz} + \frac{\eta_{yzxy}}{2G_{yz}}\sigma_{yz}\\
+        \varepsilon_{xz} = \frac{\varkappa^2_{xxz}}{E_x}\sigma_{xx} + \frac{\varkappa^2_{yxz}}{E_y}\sigma_{yy} + \frac{\varkappa^2_{zxz}}{E_z}\sigma_{zz} + \frac{\eta_{xyxz}}{2G_{xy}}\sigma_{xy} + \frac{1}{2G_{xz}}\sigma_{xz} + \frac{\eta_{yzxz}}{2G_{yz}}\sigma_{yz}\\
+        \varepsilon_{xz} = \frac{\varkappa^2_{xyz}}{E_x}\sigma_{xx} + \frac{\varkappa^2_{yyz}}{E_y}\sigma_{yy} + \frac{\varkappa^2_{zyz}}{E_z}\sigma_{zz} + \frac{\eta_{xyyz}}{2G_{xy}}\sigma_{xy} + \frac{\eta_{xzyz}}{2G_{xz}}\sigma_{xz} + \frac{1}{2G_{yz}}\sigma_{yz}
+    \end{cases}
+\end{equation*}
+Здесь:
+
+$E_i$ - модули Юнга, модули нормальной упругости определяющие величину линейной деформации в направлении 
+$i$ (то есть деформации 
+$\varepsilon_{ii}$)
+при действии одних только нормальных напряжений в этом же направлении (то есть напряжений 
+$\sigma_{ii}$);
+
+$\nu_{ij}$ - коэффициенты Пуассона, определяющие величину линейной деформации в направлении 
+$j$ 
+(то есть деформации 
+$\sigma_{jj}$)
+при действии одних только нормальных напряжений в направлении 
+$i$ 
+(то есть напряжений 
+$\sigma_{ii}$);
+
+$G_{ij}$ - модули сдвига для плоскостей определяющие величину сдвиговой деформации в плоскости 
+$ij$ 
+(то есть деформации 
+$\varepsilon_{ij}$)
+при действии одних только касательных напряжений в этой же плоскости (то есть напряжений 
+$\sigma_{ij}$);
+
+$\varkappa^1_{kli}$ - коэффициенты взаимного влияния, определяющие величину линейной деформации в направлении 
+$i$ 
+(то есть деформации 
+$\varepsilon_{ii}$)
+при действии одних только касательных напряжений в плоскости 
+$kl$ 
+(то есть напряжений 
+$\sigma_{kl}$);
+
+$\varkappa^2_{ikl}$ - коэффициенты взаимного влияния, определяющие величину сдвиговой деформации в плоскости 
+$kl$ 
+(то есть деформации 
+$\varepsilon_{kl}$)
+при действии одних только нормальных напряжений в направлении 
+$i$ 
+(то есть напряжений 
+$\sigma_{ii}$);
+
+Таким образом для того чтобы из тензора упругости 
+$C_{\alpha\beta}$ 
+получить технические константы необходимо получить обратную матрицуш 
+$D_{\alpha\beta}$ 
+и из неё уже извлечь эти константы.
+
+$\eta_{ijkl}$ - коэффициенты Ченцова, определяющие величину сдвиговой деформации в плоскости 
+$kl$ 
+(то есть деформации 
+$\varepsilon_{kl}$)
+при действии одних только касательных напряжений в плоскости 
+$ij$ 
+(то есть напряжений 
+$\sigma_{ij}$);
+
+\section{
+Аналитические формулы для преобразования в 
+$E$ 
+и 
+$\nu$}
+
+$$
+E_x = \frac{A}{C_{yyyy}C_{zzzz}-C_{yyzz}^2}
+$$
+
+$$
+E_y = \frac{A}{C_{xxxx}C_{zzzz}-C_{xxzz}^2}
+$$
+
+$$
+E_z = \frac{A}{C_{xxxx}C_{yyyy}-C_{xxyy}^2}
+$$
+
+$$
+A = C_{xxxx}C_{yyyy}C_{zzzz} - C_{xxxx}C_{yyzz}^2 - C_{yyyy}C_{xxzz}^2 -
+C_{zzzz}C_{xxyy}^2 + 2C_{xxyy}C_{yyzz}C_{xxzz}
+$$
+
+$$
+\nu_{xy} = \frac{C_{xxyy}C_{zzzz}-C_{xxzz}C_{yyzz}}{C_{yyyy}C_{zzzz}-C_{yyzz}^2}
+$$
+
+$$
+\nu_{xz} = \frac{C_{xxzz}C_{yyyy}-C_{xxyy}C_{yyzz}}{C_{yyyy}C_{zzzz}-C_{yyzz}^2}
+$$
+
+$$
+\nu_{yx} = \frac{C_{xxyy}C_{zzzz}-C_{xxzz}C_{yyzz}}{C_{xxxx}C_{zzzz}-C_{xxzz}^2}
+$$
+
+$$
+\nu_{yz} = \frac{C_{yyzz}C_{xxxx}-C_{xxyy}C_{xxzz}}{C_{xxxx}C_{zzzz}-C_{xxzz}^2}
+$$
+
+$$
+\nu_{zx} = \frac{C_{xxzz}C_{yyyy}-C_{xxyy}C_{yyzz}}{C_{xxxx}C_{yyyy}-C_{xxyy}^2}
+$$
+
+$$
+\nu_{zy} = \frac{C_{yyzz}C_{xxxx}-C_{xxyy}C_{xxzz}}{C_{xxxx}C_{yyyy}-C_{xxyy}^2}
+$$

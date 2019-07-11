@@ -1,0 +1,1217 @@
+\begin{center}
+    \Huge{Асимптотическое расщепление задачи упругости, начало}
+\end{center}
+
+\section{Введение}
+
+Рассмотрим тело вырезанное из 3-периодической среды, на которое действуют какиелибо нагрузки, тогда внутри тела должны ваполнятся уравнения
+равновесия:
+
+\begin{equation}
+    \label{elhp:eq1}
+    \frac{\partial \sigma_{\beta x}}{\partial x} +
+    \frac{\partial \sigma_{\beta y}}{\partial y} +
+    \frac{\partial \sigma_{\beta z}}{\partial z} +
+    F_{\beta} = 0,
+    \beta \in \{x,y,z\} 
+\end{equation}
+
+гда 
+$F_{\beta}$ 
+- обьёмные силы. На границе перехода от одной упругой чреды к другой должны быть непрорывны перемещения и контактные напряжения:
+
+\begin{equation}
+    \label{elhp:eq2}
+    \left[ \sigma_{\beta n} \right] = 0, \left[ u_{\beta} \right] = 0, \beta \in \{x,y,z\} 
+\end{equation}
+
+где $\sigma_{\beta n}$ -  контактные напряжения, которые по определению вычисляются по следующей формуле
+
+\begin{equation}
+    \label{elhp:eq3}
+    \sigma_{\beta n} = 
+    \sigma_{\beta x} n_x +
+    \sigma_{\beta y} n_y +
+    \sigma_{\beta z} n_z
+\end{equation}
+
+Считаем, что каждый материал является анизотропно уругим. Закон Дюамеля-Неймона зависимости напряжений от температуры в общем случае для
+каждого материала содержит 21 независимую упрегую константц 
+$E_{\gamma\beta\phi\psi}$ 
+и 6 констант тензора линейного температурного 
+расширения 
+$\alpha_{\phi\psi}$ 
+и имеет вид (\colorbox{yellow}{ССЫЛКО!!!})
+
+\begin{equation}
+    \label{elhp:eq4}
+    \sigma_{\gamma \beta} = \sum_{ \phi, \psi \in \{x,y,z\} } E_{\gamma\beta\phi\psi} 
+    \left( e_{\phi\psi} - \alpha_{\phi\psi}T \right) \gamma,\beta \in \{x,y,z\} 
+\end{equation}
+
+Компоненты тензора деформаций связаны с компонентами вектора перемещений соотношениями Коши:
+
+\begin{equation}
+    \label{elhp:eq5}
+    e_{\gamma\beta} = \frac{1}{2} \left( \frac{\partial u_{\gamma}}{\partial \beta} + \frac{\partial u_{\beta}}{\partial \gamma}  \right) 
+    ,\; \gamma,\beta \in \{x,y,z\} 
+\end{equation}
+
+Кроме того, к равенству 
+(\ref{elhp:eq1})
+-
+(\ref{elhp:eq5}) 
+должны быть добавлены краевые условия на границе тела. 
+С учетом их, задача 
+(\ref{elhp:eq1})
+-
+(\ref{elhp:eq5}) 
+является краевой задачей, решениями 
+которой явзяются перемещения, по которым их равенства 
+(\ref{elhp:eq4}) 
+могут быть найдены термонапряжения.
+
+Пусть i
+$ \widetilde{u} $ 
+- характерное значение для перемещения 
+$h_x$, $h$ 
+- линейный размер периодической решетки (куба), 
+$L$ 
+- характерный размер тела,
+$ \widetilde{E}$, $ \widetilde{T}$ 
+- характерное среднее значение модуля Юнга и изменения температуры соответственно. Перейдём к безразмерным переменным и функциям,
+для простоты не меняя их обозначения:
+
+\begin{equation}
+    \label{elhp:eq6}
+    \begin{aligned}
+        x \leftrightarrow \frac{x}{L}, 
+        y \leftrightarrow \frac{y}{L}, 
+        z \leftrightarrow \frac{z}{L},
+        u_{\gamma} \leftrightarrow \frac{u_{\gamma}}{h},
+        E_{\gamma\beta\phi\psi} \leftrightarrow \frac{E_{\gamma\beta\phi\psi}}{ \widetilde{E}},
+        \\
+        \sigma_{\gamma\beta}\leftrightarrow \frac{\sigma_{\gamma\beta}}{ \widetilde{E}},
+        q_{\gamma} \leftrightarrow \frac{q_{\gamma}}{ \widetilde{E}},
+        T \leftrightarrow \frac{T}{ \widetilde{T}},
+        \alpha_{\phi\psi} \leftrightarrow \alpha_{\phi\psi} \widetilde{T},
+        \widetilde{F}_{\gamma} \leftrightarrow \frac{F_{\gamma}}{ \widetilde{E}}
+    \end{aligned}
+\end{equation}
+
+В дальнейшем будем считать, что отношение размера периодической ячейки упругой среды к характерному размеру тела является малым параметром
+и обознчается буквой 
+$\varepsilon$:
+
+\begin{equation}
+    \label{elhp:eq7}
+    \varepsilon = \frac{h}{L} \ll 1
+\end{equation}
+
+Тогда уравнения 
+(\ref{elhp:eq1})
+в новых переменных примут вид
+
+\begin{equation}
+    \label{elhp:eq8}
+    \frac{\partial \sigma_{\gamma x}}{\partial x}\varepsilon +
+    \frac{\partial \sigma_{\gamma y}}{\partial y}\varepsilon +
+    \frac{\partial \sigma_{\gamma z}}{\partial z}\varepsilon +
+    F_{\alpha} = 0
+\end{equation}
+
+Равенства 
+(\ref{elhp:eq2})
+-
+(\ref{elhp:eq4})
+останутся без изменений, а выражение 
+(\ref{elhp:eq5})
+примет вид
+
+\begin{equation}
+    \label{elhp:eq9}
+    e_{\gamma\beta} = \frac{1}{2}
+    \left( \frac{\partial u_{\gamma}}{\partial \beta} \varepsilon \frac{\partial u_{\beta}}{\partial \gamma} \varepsilon \right) 
+\end{equation}
+
+Введение двух масштабов моделирования. Согласно основной идее многомасштабного метода (\colorbox{yellow}{ССЫЛКО!!!}) внутри каждой периодической ячецки положение
+точки однозначно описывается тремя безразмерными координатами 
+$\xi_x, \xi_y, \xi_z$
+, с помощью формул
+
+\begin{equation}
+    \label{elhp:eq10}
+    x = x_i + \xi_x \varepsilon ,\;
+    y = y_i + \xi_y \varepsilon ,\;
+    z = z_i + \xi_z \varepsilon ,\;
+    \xi_x,\xi_y,\xi_z \in \{x,y,z\} 
+\end{equation}
+
+где
+$x_i, y_i, z_i$ 
+- координаты i-го периодического куба. Координаты  
+$\xi_x, \xi_y, \xi_z$ 
+будем называть ячейквыми в противоположность пространственным 
+координатам 
+$x,y,z$
+, в то время когда ячейковые координаты изменяются на единицу, соответствующие им простренственные меняются на малую величину 
+$\varepsilon$
+, как это следует из формулы 
+(\ref{elhp:eq10})
+.
+
+Упругие и термоупругие характеристики 3-периодической среды будем считать зависящими только от ячейковых координат 
+$\varepsilon$:
+
+\begin{equation}
+    \label{elhp:eq11}
+    E_{\gamma\beta\phi\psi} = 
+    E_{\gamma\beta\phi\psi} 
+    \left( \overline{\xi} \right) 
+    ,\;
+    \alpha_{\phi\psi} = 
+    \alpha_{\phi\psi}
+    \left( \overline{\xi} \right) 
+\end{equation}
+
+Хотя солгасно формулам 
+(\ref{elhp:eq10})
+координаты i
+$ \left( x,y,z \right) $ 
+и 
+$ \left( \xi_x, \xi_y, \xi_z \right) $ 
+являются зависимыми, в дальнейшем
+будем формально считать, что все неизвестные функции
+одновременно зависят как от ячейковых координат 
+$ \left( \xi_x, \xi_y, \xi_z \right) $
+, так и от координат 
+$ \left( x,y,z \right) $
+
+\begin{equation}
+    \label{elhp:eq13}
+    u_{\gamma} =
+    u_{\gamma}
+    \left( \overline{\xi}, \overline{r} \right) 
+    ,\;
+    \sigma_{\gamma\beta} = 
+    \sigma_{\gamma\beta}
+    \left( \overline{\xi}, \overline{r} \right) 
+    ,\;
+    \gamma,\beta \in \{x,y,z\} 
+\end{equation}
+
+при этом фломулы 
+(\ref{elhp:eq10})
+продолжют остраваться справедливыми. Координаты 
+$ \left( x,y,z \right) $ 
+в дальнейшем будем называть макрокоординатами (макропеременными)
+так как они однозначным образом фиксируют положение макросреды, которая будет введена в дальнейшем. Потребуем также условия периодичности неизвестных
+функций по ячейковым перемещениям и напряжениям:
+
+\begin{equation}
+    \label{elhp:eq14}
+    \begin{gathered}
+    u_{\beta} \left. \left( \overline{\xi}, \overline{r} \right)  \right|_{\xi_{\gamma}=0} =
+    u_{\beta} \left. \left( \overline{\xi}, \overline{r} \right)  \right|_{\xi_{\gamma}=1} 
+    ,\;
+    \sigma_{\gamma\beta} \left. \left( \overline{\xi}, \overline{r} \right)  \right|_{\xi_{\gamma}=0} =
+    \sigma_{\gamma\beta} \left. \left( \overline{\xi}, \overline{r} \right)  \right|_{\xi_{\gamma}=1} 
+    ,
+    \\
+    \gamma,\beta \in \{x,y,z\} 
+    \end{gathered}
+\end{equation}
+
+С учеотом равенства 
+(\ref{elhp:eq10})
+оператор частного дифференцирования принимает вид диыыеренциирования и по ячейковым переменным и по макропеременнвм (\colorbox{yellow}{ССЫЛКО!!!}):
+
+\begin{equation}
+    \label{elhp:eq15}
+    \frac{\partial }{\partial \gamma} = \frac{\partial }{\partial \gamma} + \frac{1}{\varepsilon} \frac{\partial \xi_{\varepsilon}}{\partial } 
+\end{equation}
+
+Уравнения 
+(\ref{elhp:eq8})
+, 
+(\ref{elhp:eq3})
+-
+(\ref{elhp:eq5})
+, 
+(\ref{elhp:eq10})
+с учетом формулы 
+(\ref{elhp:eq15})
+для диференциального оператора принимают вид
+
+\begin{equation}
+    \label{elhp:eq16}
+    \frac{\partial \sigma_{\gamma x}}{\partial x} \varepsilon + 
+    \frac{\partial \sigma_{\gamma y}}{\partial y} \varepsilon + 
+    \frac{\partial \sigma_{\gamma z}}{\partial z} \varepsilon + 
+    \frac{\partial \sigma_{\gamma x}}{\partial \xi_x} \varepsilon + 
+    \frac{\partial \sigma_{\gamma y}}{\partial \xi_y} \varepsilon + 
+    \frac{\partial \sigma_{\gamma z}}{\partial \xi_z} \varepsilon + 
+    F_{\gamma} = 0
+\end{equation}
+
+условие на границе от одной упругой среды к другой:
+
+\begin{equation}
+    \label{elhp:eq17}
+    \left[ \sigma_{\gamma n} \right] = 0, \; \left[ u_{\gamma} \right], \; \gamma,\beta \in \{x,y,z\} 
+\end{equation}
+
+закон Дюамеля-Неймона:
+
+\begin{equation}
+    \label{elhp:eq18}
+    \sigma_{\gamma\beta} = \sum_{ \phi\psi \in \{x,y,z\} }
+    E_{\gamma\beta\phi\psi} 
+    \left( e_{\phi\psi} - \alpha_{\phi\psi}T \right) 
+    , \;
+    \gamma,\beta \in \{x,y,z\} 
+\end{equation}
+
+формулы для компонента тензора деформаций:
+
+\begin{equation}
+    \label{elhp:eq19}
+    e_{\gamma\beta} = \frac{1}{2}
+    \left( 
+        \frac{\partial u_{\gamma}}{\partial \beta} \varepsilon +
+        \frac{\partial u_{\gamma}}{\partial \beta} \varepsilon +
+        \frac{\partial u_{\gamma}}{\partial \xi_{\beta}} +
+        \frac{\partial u_{\gamma}}{\partial \xi_{\beta}}
+    \right) 
+    , \;
+    \gamma,\beta \in \{x,y,z\} 
+\end{equation}
+
+Кроме того, к уравнениям 
+(\ref{elhp:eq15})
+-
+(\ref{elhp:eq19})
+должны быть добавлены краевые условия на кганице тела.
+Далее будем считать, что законы ремпределения температуры и обэёмных сил по объйму среды имеют расщепленый вид относительно  медленных и быстрых
+переменных:
+
+\begin{equation}
+    \label{elhp:eq20}
+    T \left( \overline{r}, \overline{\xi} \right) = \Psi \left( \overline{\xi}  \right) T_0 \left( \overline{r}  \right) 
+    , \;
+    F_{\gamma} \left( \overline{r}, \overline{\xi} \right) = q_{\gamma} \left( \overline{\xi}  \right) f_{\gamma} \left( \overline{r}  \right) 
+\end{equation}
+
+причем интеграл сомножтеле, зависящих от быстрых переменных, по объёму периодический ячейки равняется единице:
+
+\begin{equation}
+    \label{elhp:eq21}
+    \left< \Psi \left( \overline{\xi}  \right)  \right> = 1
+    ,\;
+    \left< q_{\gamma} \left( \overline{\xi}  \right)  \right> = 1
+\end{equation}
+
+Условие 
+(\ref{elhp:eq21})
+является нормировочным. А из равенств 
+(\ref{elhp:eq19})
+-
+(\ref{elhp:eq21})
+следует, функция 
+$T_0 \left(  \overline{r} \right) $ 
+является средней температурой в 
+ячейке периодичности, а 
+$f_{_gamma} \left( \overline{r}  \right) $
+- средней объёмной силой, действующей на ячейку периодичности: 
+
+\begin{equation}
+    \label{elhp:eq22}
+    T_0 \left( \overline{r}  \right) = \left< T \left( \overline{r} , \overline{\xi}  \right)  \right> 
+    ,\;
+    f_{\gamma} \left( \overline{r}  \right) = \left< T \left( \overline{r} , \overline{\xi}  \right)  \right> 
+    ,\;
+    \gamma \in \{x,y,z\} 
+\end{equation}
+
+Метод асимптотического расщепления. В соответствии с общей идеей метода асимптотического расщепления ищем перемещения и напряжения в виде
+конечных сумм дифференнциальных операторов по макропеременным, а среднюю температуру и средние объёмные силы также представляем в виде суммы 
+дифференциированных операторов по макропеременным, а среднюю температуру и средние объёмные силы также представляем в виде сумм дифференциальных 
+операторов по макропеременным, 
+$n$
+- номер асимаптотического приближения:
+
+\begin{equation}
+    \label{elhp:eq23}
+    \left( u_{\gamma} \right)^{(n)} =
+    v_{\gamma}^{(n)} +
+    \sum_{ \omega \in \{x,y,z\} } \sum_{k=1}^{n+1}
+    \left( 
+    \sum_{k_x+k_y+k_z = k} 
+    \left( U_{\gamma}^{v_{\theta}} \right)^{ \overline{k} } 
+    \frac{\partial^k v_{\theta}^{(n)}}{\partial \overline{r}^{ \overline{k}  } } 
+    \varepsilon^k
+\right) 
+,\;
+\gamma \in \{x,y,z\} 
+\end{equation}
+
+\begin{equation}
+    \label{elhp:eq24}
+    \left( \sigma_{\gamma\beta} \right)^{(n)} =
+    \sum_{ \omega \in \{x,y,z\} } \sum_{k=1}^{n+1}
+    \left( 
+    \sum_{k_x+k_y+k_z = k} 
+    \left( \tau_{ \gamma\beta}^{v_{\theta}} \right)^{ \overline{k} }
+    \frac{\partial^k v_{\theta}^{(n)}}{\partial \overline{r}^{ \overline{k}  } } 
+    \varepsilon^k
+    \right) 
+,\;
+    \gamma,\beta \in \{x,y,z\} 
+\end{equation}
+
+\begin{equation}
+    \label{elhp:eq25}
+    T_0 \left( \overline{r}  \right) =
+    \sum_{ \omega \in \{x,y,z\} } 
+    \left( 
+        \sum_{k=1}^{n}
+        A_{v_{\theta}}^{ \overline{k} }
+        \frac{\partial^k v_{\theta}^{(n)}}{\partial \overline{r}^{ \overline{k}  } } 
+        \varepsilon^k
+    \right) 
+\end{equation}
+
+\begin{equation}
+    \label{elhp:eq26}
+    f_{ \gamma} \left( \overline{r}  \right) =
+    \sum_{ \omega \in \{x,y,z\} } \sum_{k=2}^{n+1}
+    \left( 
+    \sum_{k_x+k_y+k_z = k} 
+    \left( B_{\gamma}^{v_{\theta}} \right)^{ \overline{k} } 
+    \frac{\partial^k v_{\theta}^{(n)}}{\partial \overline{r}^{ \overline{k}  } } 
+    \varepsilon^k
+\right) 
+,\;
+\gamma \in \{x,y,z\} 
+\end{equation}
+
+
+где функции 
+$v_{ \gamma}^{(n)}$ 
+зависят от макропеременных и поопределению равняются осреднению реальных перемещений 
+$ \left(  u_{ \gamma} \right)^{(n)} $ 
+по периодической ячейке:
+
+\begin{equation}
+    \label{elhp:eq27}
+    v_{ \gamma}^{(n)} = \left< \left( u_{ \gamma}^{(n)} \right)  \right> 
+\end{equation}
+
+В формулах 
+(\ref{elhp:eq23})
+-
+(\ref{elhp:eq24})
+кохффициенты при степенях дифференциальных операторов по макроперемещениым зависят только от ячейковых переменных, 
+поэтому их называют ячейковыми функсциями. Соответственно и метод ассимптотического расщепления применительно к задачам такого типа
+называются меотдом ячейковых функций. В формулах 
+(\ref{elhp:eq25})
+-
+(\ref{elhp:eq26})
+коэффициенты являются неизвестными константами. Для рещения краевой задачи
+
+(\ref{elhp:eq16})
+-
+(\ref{elhp:eq19})
+достаточно подставить в нее равенмтва 
+(\ref{elhp:eq23})
+-
+(\ref{elhp:eq26})
+, затем собрать подобные и приравнять коэффициенты при дифференциальных операторах 
+нулю, в итоге получается система краевых рекурентных задач на неизвестных ячейковые функции вектора перемещений и тензора напряжений:
+
+\begin{equation}
+    \label{elhp:eq28}
+    \frac{\partial \left(  \tau_{ \gamma x}^{v_{\theta}}\right)^{ \overline{k} }}{\partial \xi_x} +
+    \frac{\partial \left(  \tau_{ \gamma y}^{v_{\theta}}\right)^{ \overline{k} }}{\partial \xi_y} +
+    \frac{\partial \left(  \tau_{ \gamma z}^{v_{\theta}}\right)^{ \overline{k} }}{\partial \xi_z} +
+    \left(  \tau_{ \gamma x}^{v_{\theta}}\right)^{ \overline{k} - \overline{\epsilon_x} } +
+    \left(  \tau_{ \gamma y}^{v_{\theta}}\right)^{ \overline{k} - \overline{\epsilon_y} } +
+    \left(  \tau_{ \gamma z}^{v_{\theta}}\right)^{ \overline{k} - \overline{\epsilon_z} } =
+    q_{\gamma} \left( \overline{\xi}  \right) \left( B_{\gamma}^{v_{\theta}} \right)^{ \overline{k} }
+\end{equation}
+
+закон термоупругости внутри ячейки
+
+\begin{equation}
+    \label{elhp:eq29}
+    \begin{gathered}
+    \left( \tau_{ \gamma\beta} \right)^{ \overline{k} } =
+    \sum_{ \phi,\psi \in \{x,y,z\}} E_{ \gamma\beta\phi\psi}
+    \\
+    \left( \frac{1}{2} 
+        \left( 
+            \frac{\partial \left( U_{\phi}^{v_{\theta}}\right)^{ \overline{k} }}{\partial \xi_{\psi}} +
+            \frac{\partial \left( U_{\psi}^{v_{\theta}}\right)^{ \overline{k} }}{\partial \xi_{\phi}} +
+            \left( U_{\phi}^{v_{\theta}}\right)^{ \overline{k} - \overline{\epsilon}_{\psi}  } +
+            \left( U_{\psi}^{v_{\theta}}\right)^{ \overline{k} - \overline{\epsilon}_{\phi}  }
+        \right) 
+        - \alpha_{\phi\psi} \Psi A_{v_{\theta}}^{ \overline{k} }
+    \right) 
+    \end{gathered}
+\end{equation}
+
+условия непрерывности ячейковых функций внутри ячейке на границе различных сред
+
+\begin{equation}
+    \label{elhp:eq30}
+    \left[ \left( \tau_{ \gamma n}^{v_{\theta}} \right)^{ \overline{k} }  \right] = 0
+    ,\;
+    \left[ \left( U_{ \gamma}^{v_{\theta}} \right)^{ \overline{k} }  \right] = 0
+    ,\;
+    \gamma \in \{x,y,z\} 
+\end{equation}
+
+услоние периодичности ячейковых функций
+
+\begin{equation}
+    \label{elhp:eq70}
+    \begin{gathered}
+    \left.   
+    \left( U_{\beta}^{ v_{\theta}} \right)^{ \overline{k}}
+    \left( \overline{\xi}  \right) 
+    \right|_{\xi_{\gamma}=0}
+    =
+    \left.   
+    \left( U_{\beta}^{ v_{\theta}} \right)^{ \overline{k}}
+    \left( \overline{\xi}  \right) 
+    \right|_{\xi_{\gamma}=1}
+    ,
+    \\
+    \left.   
+    \left( \tau_{\beta\gamma}^{ v_{\theta}} \right)^{ \overline{k}}
+    \left( \overline{\xi}  \right) 
+    \right|_{\xi_{\gamma}=0}
+    =
+    \left.   
+    \left( \tau_{\beta\gamma}^{ v_{\theta}} \right)^{ \overline{k}}
+    \left( \overline{\xi}  \right) 
+    \right|_{\xi_{\gamma}=1},
+    \\
+    \beta,\gamma \in \{x,y,z\} 
+    \end{gathered}
+\end{equation}
+
+Из равенства 
+(\ref{elhp:eq27})
+следует, что к полученным равенствам следует добавить нормировки на 
+ячейковые функции вектора перемещения
+
+\begin{equation}
+    \label{elhp:eq31}
+    \left< \left( U_{\beta}^{v_{\theta}} \right)^{ \overline{k} } \left( \overline{\xi}  \right)   \right> = 0
+    ,\;
+    \gamma \in \{x,y,z\} ,\; k \ge 1
+\end{equation}
+
+
+Необходимое условие разрешимости краевой задачи 
+(\ref{elhp:eq28})
+-
+(\ref{elhp:eq31})
+имеет вид
+
+\begin{equation}
+    \label{elhp:eq32}
+    \left( B_{\gamma}^{v_{\theta}} \right)^{ \overline{k} } =
+    \left< 
+    \left( \tau_{ \gamma x}^{v_{\theta}} \right)^{ \overline{k} - \overline{\epsilon_x} } +
+    \left( \tau_{ \gamma y}^{v_{\theta}} \right)^{ \overline{k} - \overline{\epsilon_y} } +
+    \left( \tau_{ \gamma z}^{v_{\theta}} \right)^{ \overline{k} - \overline{\epsilon_z} } 
+    \right> 
+    ,\;
+    \gamma \in \{x,y,z\} 
+\end{equation}
+
+где треугольные скобки обозначают интегрирование по объёму перидической ячейки (по ячейковым переменным). Из формул 
+(\ref{elhp:eq29})
+и 
+(\ref{elhp:eq32})
+следует, что коэффициент 
+$\left( B_{\gamma}^{v_{\theta}} \right)^{ \overline{k} }$ 
+является функцией от констат 
+$A_{v_{\theta}}^{ \overline{k} - \epsilon_y} ,\;A_{v_{\theta}}^{ \overline{k} - \epsilon_y} ,\;A_{v_{\theta}}^{ \overline{k} - \epsilon_z}$. 
+Равенство 
+(\ref{elhp:eq26})
+можно рассматривать как систему уравнений в частныхпроизводных на 
+макроперемещения 
+$v_{\gamma}^{(n)}$:
+
+\begin{equation}
+    \label{elhp:eq33}
+    \sum_{ \theta \in \{x,y,z\} } \sum_{k=2}^{n+1}
+    \left( 
+        \sum_{k_x+k_y+k_z = k}
+        \left( B_{\gamma}^{v_{\theta}} \right)^{ \overline{k} }
+        \frac{\partial^k v_{\theta}^{(n)}}{\partial \overline{r}^{ \overline{k}}}
+        \varepsilon^k
+    \right) 
+    + f_{ \gamma} \left( \overline{r}  \right) = 0
+    ,\;
+    \gamma \in \{x,y,z\} 
+\end{equation}
+
+Для которой в качестве краевых условий выступаеют условия исходной краевой задачи 
+(\ref{elhp:eq16})
+-
+(\ref{elhp:eq19})
+. Равенство 
+(\ref{elhp:eq25})
+в общем случае не может быть выполнено 
+в точности, поэтому потребуем его выполнения в смысле минимизации невязки по методу наменьших квадратов, тогда постановка задачи которую следует
+решить, принимает вид.
+
+Это задача о минимизации функционала
+
+\begin{equation}
+    \label{elhp:eq34}
+    \int_V \left( 
+    T_0 \left( \overline{r}  \right) - 
+    \sum_{ \theta \in \{x,y,z\} } \left( 
+        \sum^{n-1}_{k=1} A_{v_{\theta}}^{ \overline{k} } \frac{\partial^k v_{\theta}}{\partial \overline{r}^{ \overline{k} } } 
+    \right)   \right)^2
+    dV \rightarrow min
+\end{equation}
+
+при выполнении условий
+
+\begin{equation}
+    \label{elhp:eq35}
+    \sum_{ \theta \in \{x,y,z\} } \sum_{k=2}^{n}
+    \left( 
+        \sum_{k_x+k_y+k_z = k}
+        \left( B_{\gamma}^{v_{\theta}} \right)^{ \overline{k} }
+        \frac{\partial^k v_{\theta}^{(n)}}{\partial \overline{r}^{ \overline{k}}}
+        \varepsilon^k
+    \right) 
+    + f_{ \gamma} \left( \overline{r}  \right) = 0
+    ,\;
+    \gamma \in \{x,y,z\} 
+\end{equation}
+
+и граничных учловий на поверхности тела, где коэффициенты 
+$\left( B_{\gamma}^{v_{\theta}} \right)^{ \overline{k} }$ 
+вычисляются по формулам 
+(\ref{elhp:eq32})
+на основе решений ячейкрвых краевых задач 
+(\ref{elhp:eq28})
+-
+(\ref{elhp:eq31})
+.
+Наибольший интерес в любом ассимаптотическом методе представляет первое приближение при 
+$n=1$
+, поэтому в дальнейшем будем рассматривать
+только его.
+
+Первое асимптотическое приближение при 
+$n=1$
+. В этом случае задача 
+(\ref{elhp:eq34})
+-
+(\ref{elhp:eq35})
+принимает вид:
+
+\begin{equation}
+    \label{elhp:eq36}
+    \int_V \left( 
+    T_0 \left( \overline{r}  \right) - 
+    \sum_{ \theta \in \{x,y,z\} } \left( 
+        \sum_{ \eta \in \{x,y,z\} } A_{v_{\theta}}^{ \overline{k} } \frac{\partial^k v_{\theta}}{\partial \eta } 
+    \right)   \right)^2
+    dV \rightarrow min
+\end{equation}
+
+при выполнении условий
+
+\begin{equation}
+    \label{elhp:eq37}
+    \sum_{ \theta \in \{x,y,z\} } 
+    \left( 
+        \sum_{k_x+k_y+k_z = 2}
+        \left( B_{\gamma}^{v_{\theta}} \right)^{ \overline{k} }
+        \frac{\partial^k v_{\theta}^{(n)}}{\partial \overline{r}^{ \overline{k}}}
+        \varepsilon^2
+    \right) 
+    + f_{ \gamma} \left( \overline{r}  \right) = 0
+    ,\;
+    \gamma \in \{x,y,z\} 
+\end{equation}
+
+и граничных условий на поверхности тела; коэффициенты
+$ \left( B_{\alpha}^{ v_{\theta}} \right)^{ \overline{k}} $
+вычисляются по формулам
+(\ref{elhp:eq32})
+на основе решений ячейковых краевых задач 
+(\ref{elhp:eq28})
+-
+(\ref{elhp:eq31})
+Ячейковая задача 
+(\ref{elhp:eq27})
+-
+(\ref{elhp:eq21})
+при $k=0$ в соответствии с (\colorbox{yellow}{СССЫЛКО!!!}) имеет следующее решение
+
+\begin{equation}
+    \label{elhp:eq38}
+    \left( U_{\alpha}^{v_{\theta}} \right)^{ \overline{0} } = \delta_{\alpha}^{\theta}
+    ,\;
+    \left( \tau_{\alpha\beta}^{v_{\theta}} \right)^{ \overline{0} } = 0
+    ,\;
+    \alpha,\beta,\theta \in \{x,y,z\} 
+\end{equation}
+
+Краевая задача на ячейке при 
+$k=1$
+. Система уравнений равновесия на ячейке
+
+\begin{equation}
+    \label{elhp:eq39}
+    \frac{\partial \left(  \tau_{\alpha x}^{v_{\theta}}\right) }{\partial \xi_x} +
+    \frac{\partial \left(  \tau_{\alpha y}^{v_{\theta}}\right) }{\partial \xi_y} +
+    \frac{\partial \left(  \tau_{\alpha z}^{v_{\theta}}\right) }{\partial \xi_z} = 0
+    ,\;
+    \alpha \in \{x,y,z\} 
+\end{equation}
+
+закон термоупругости внутри ячейки
+
+\begin{equation}
+    \label{elhp:eq40}
+    \left( \tau_{\alpha\beta}^{v_{\theta}} \right)^{ \overline{\epsilon}_{\lambda} } =
+    E_{\alpha\beta\theta\lambda} +
+    \sum_{ \phi,\psi \in \{x,y,z\} } E_{\alpha\beta\phi\psi}
+    \left( 
+        \frac{\partial \left( U_{\phi}^{v_{\theta}} \right) }{\partial \xi_{\psi}} - \alpha_{\phi\psi} \Psi A_{v_{\theta}}^{ \overline{\epsilon}_{\lambda}} 
+    \right) 
+\end{equation}
+
+условия непрерывности ячейковых функций внутри ячейки на границе различных сред
+
+\begin{equation}
+    \label{elhp:eq41}
+    \left[ \left( \tau_{\alpha n}^{v_{\theta}} \right)^{ \overline{\epsilon}_{\lambda} }  \right] = 0
+    ,\;
+    \left[ \left( U_{\alpha}^{v_{\theta}} \right)^{ \overline{\epsilon}_{\lambda} }  \right] = 0
+    ,\;
+    , \; \alpha \in \{x,y,z\}
+\end{equation}
+
+условие периодичности ячейковых функций
+
+\begin{equation}
+    \label{elhp:eq42}
+    \begin{gathered}
+    \left.  \left( U_{\alpha}^{v_{\theta}} \right)^{ \overline{\epsilon}_{\lambda}} \left( \overline{\xi}  \right)   \right|_{\xi_{\gamma} = 0}
+    =
+    \left.  \left( U_{\alpha}^{v_{\theta}} \right)^{ \overline{\epsilon}_{\lambda}} \left( \overline{\xi}  \right)   \right|_{\xi_{\gamma} = 1}
+    , \\
+    \left.  \left( \tau_{\alpha \gamma}^{v_{\theta}} \right)^{ \overline{\epsilon}_{\lambda}} \left( \overline{\xi}  \right)   \right|_{\xi_{\gamma} = 0}
+    =
+    \left.  \left( \tau_{\alpha \gamma}^{v_{\theta}} \right)^{ \overline{\epsilon}_{\lambda}} \left( \overline{\xi}  \right)   \right|_{\xi_{\gamma} = 1}
+    , \\
+    \alpha, \gamma \in \{x,y,z\} 
+    \end{gathered}
+\end{equation}
+
+условие нормировки решения
+
+\begin{equation}
+    \label{elhp:eq43}
+    \left< \left( U_{\alpha}^{v_{\theta}} \right)^{ \overline{\epsilon}_{\lambda}}  \right> = 0 ,\; , \; \alpha \in \{x,y,z\}
+\end{equation}
+
+Представим ячейковые функции, являющиеся решениями краевой задачи 
+(\ref{elhp:eq39})
+-
+(\ref{elhp:eq43})
+, в виде:
+
+\begin{equation}
+    \label{elhp:eq44}
+    \left( U_{\alpha}^{v_{\theta}} \right)^{ \overline{\epsilon}_{\lambda}} =
+    \left( U_{\alpha}^{v_{\theta}} \right)^{ \overline{\epsilon}_{\lambda}}_E +
+    A_{v_{\theta}}^{ \overline{\epsilon}_{\lambda}}
+    U_{\alpha}^T
+    ,\;
+    \left( \tau_{\alpha\beta}^{v_{\theta}} \right)^{ \overline{\epsilon}_{\lambda}} =
+    \left( \tau_{\alpha\beta}^{v_{\theta}} \right)^{ \overline{\epsilon}_{\lambda}}_E +
+    A_{v_{\theta}}^{ \overline{\epsilon}_{\lambda}}
+    \tau_{\alpha\beta}^T
+\end{equation}
+
+и подставим их в краевую задачу 
+(\ref{elhp:eq39})
+-
+(\ref{elhp:eq43})
+, тогда легко видеть, что если считать, что для функций 
+$\left( \tau_{ \alpha\beta}^{ v_{\theta}} \right)_E^{ \overline{e}_{\lambda}}$
+выполняется равенства
+
+\begin{equation}
+    \label{elhp:eq45}
+    \left( \tau_{\alpha\beta}^{\nu_{\theta}} \right)_E^{ \overline{e}_{\lambda} }  =
+    E_{\alpha\beta\theta\lambda} + \sum_{ \phi,\psi \in \{x,y,z\} } 
+    E_{\alpha\beta\phi\psi} \frac{ \partial \left( U_{\phi}^{\nu_{\theta}} \right)_E^{\overline{e}_{\lambda}} }
+    { \partial \xi_{\psi}}
+\end{equation}
+
+а для функции 
+$\tau_{ \alpha\beta}^T$
+
+\begin{equation}
+    \label{elhp:eq46}
+    \tau_{ \alpha\beta}^T = \sum_{ \phi\psi \in \{x,y,z\}} E_{ \alpha\beta \phi\psi}
+    \left( \frac{ \partial U_{\phi}^T}{ \partial \xi_{psi}} - \alpha_{ \phi\psi} \Psi \right) 
+\end{equation}
+
+то функции  
+$\left( \tau_{ \alpha\beta}^{ v_{\theta}} \right)_E^{ \overline{e}_{\lambda}}$
+и 
+$\left( U_{ \phi}^{ v_{\theta}} \right)_E^{ \overline{e}_{\lambda}}$
+удовлетворяют краевой задаче 
+(\ref{elhp:eq39})
+-
+(\ref{elhp:eq43})
+где вместо формул 
+(\ref{elhp:eq40})
+стоят формулы
+
+(\ref{elhp:eq45})
+, а функции 
+$\tau_{ \alpha\beta}^T$
+и
+$U_{ \phi}^T$
+удовлетворяют краевой задаче 
+(\ref{elhp:eq39})
+-
+(\ref{elhp:eq43})
+, где вместо формул 
+(\ref{elhp:eq40})
+стоят
+формулы 
+(\ref{elhp:eq46})
+. Для функций 
+$\left( \tau_{ \alpha\beta}^{ v_{\theta}} \right)_E^{ \overline{e}_{\lambda}}$
+и 
+$\left( U_{ \phi}^{ v_{\theta}} \right)_E^{ \overline{e}_{\lambda}}$
+в качастве обозначения выбраны нижние индексы E (elasticity), т.к. ячейковые
+краевая краевая задача 
+(\ref{elhp:eq39})
+, 
+(\ref{elhp:eq45})
+, 
+(\ref{elhp:eq41})
+-
+(\ref{elhp:eq43})
+совпадает с ячейковой краевой задачей, 
+возникающей при использовании метода ячейковых функций применительно к чисто
+упругой задаче без учета изменения температуры \colorbox{yellow}{СССЫЛКО!!!}. Для функций
+$\tau_{ \alpha\beta}^T$
+и
+$U_{ \phi}^T$
+в качестве обозначения выбран верхний индекс T (temperature) т.к. коэффтцентам 
+$ {A}_{ \overline{e}_{\lambda}}^{ v_{\theta}} $
+при этих функциях является нунулевым только при наличии изменений температуры
+
+Расмотрим вычисление констант 
+$ \left( B_{\alpha}^{ v_{\theta}} \right)^{ \overline{k}} $
+при k=2. Целочисленный вектор 
+$ \overline{k}$
+представим в виде:
+
+\begin{equation}
+    \label{elhp:eq47}
+    \overline{k} = \overline{e}_{\lambda} + \overline{e}_{\eta}, \\ \lambda,\eta \in \{x,y,z\}  
+\end{equation}
+
+Для таких 
+$ \overline{k}$
+запишем формулы 
+(\ref{elhp:eq32})
+:
+
+\begin{equation}
+    \label{elhp:eq48}
+    \left( B_{\alpha}^{\nu_{\theta}} \right)^{ \overline{e}_{\lambda} + \overline{e}_{\eta}  } 
+    =
+    \left< 
+    \left( \tau_{\alpha x}^{v_{\theta}} \right)^{\overline{e}_{\lambda} + \overline{e}_{\eta} - \overline{e}_x } 
+    +
+    \left( \tau_{\alpha y}^{v_{\theta}} \right)^{\overline{e}_{\lambda} + \overline{e}_{\eta} - \overline{e}_y } 
+    +
+    \left( \tau_{\alpha z}^{v_{\theta}} \right)^{\overline{e}_{\lambda} + \overline{e}_{\eta} - \overline{e}_z } 
+    \right> 
+\end{equation}
+
+Поставим формулы 
+(\ref{elhp:eq1}!\colorbox{yellow}{!!!!!!!!!!!!!!!!11})
+в формулы 
+(\ref{elhp:eq1}!\colorbox{yellow}{!!!!!!!!!!!!!!!!!!!!!!1т})
+и приведём подобые при константах 
+${A}_{ \overline{e}_{\lambda} + \overline{e}_{\eta} - \overline{e}_z}^{ v_{\theta}} $
+:
+
+\begin{equation}
+    \label{elhp:eq49}
+    \left( B_{\alpha}^{v_{\theta}} \right)^{ \overline{e}_{\lambda} + \overline{e}_{\eta}  } 
+    =
+    \left( B_{\alpha}^{v_{\theta}} \right)^{ \overline{e}_{\lambda} + \overline{e}_{\eta}  }_E
+    -
+    A_{v_{\theta}}^{\overline{e}_{\lambda} + \overline{e}_{\eta} - \overline{e}_x }
+    \widetilde{\zeta}_{\alpha x}
+    -
+    A_{v_{\theta}}^{\overline{e}_{\lambda} + \overline{e}_{\eta} - \overline{e}_y }
+    \widetilde{\zeta}_{\alpha y}
+    -
+    A_{v_{\theta}}^{\overline{e}_{\lambda} + \overline{e}_{\eta} - \overline{e}_z }
+    \widetilde{\zeta}_{\alpha z}
+\end{equation}
+
+где константы 
+$ \left( B_{\alpha}^{ v_{\theta}} \right)_E^{ \overline{k}} $
+, 
+${\zeta}_{\alpha x}$ 
+, 
+${\zeta}_{\alpha y}$ 
+,
+${\zeta}_{\alpha z}$ 
+вычисляются по формулам:
+
+\begin{equation}
+    \label{elhp:eq50}
+    \left( B_{\alpha}^{v_{\theta}} \right)^{ \overline{e}_{\lambda} + \overline{e}_{\eta}  }_E
+    =
+    \left< 
+    \left( \tau_{\alpha x}^{v_{\theta}} \right)_E^{\overline{e}_{\lambda} + \overline{e}_{\eta} - \overline{e}_x } 
+    +
+    \left( \tau_{\alpha y}^{v_{\theta}} \right)_E^{\overline{e}_{\lambda} + \overline{e}_{\eta} - \overline{e}_y } 
+    +
+    \left( \tau_{\alpha z}^{v_{\theta}} \right)_E^{\overline{e}_{\lambda} + \overline{e}_{\eta} - \overline{e}_z } 
+    +
+    \left( \tau_{\alpha z}^{v_{\theta}} \right)^{\overline{e}_{\lambda} + \overline{e}_{\eta} - \overline{e}_z } 
+    \right> 
+\end{equation}
+
+\begin{equation}
+    \label{elhp:eq51}
+    \widetilde{\zeta}_{\beta \gamma} = 
+    - \left< \tau_{\beta \gamma}^T \right> , \beta,\gamma \in \{x,y,z\} 
+\end{equation}
+
+В работе \colorbox{yellow}{ССЫЛКО!!!} показано, что упругие характеристики являются усреднёнными ячейковых
+функций (в дальнейшем для обозначения макрохарактеристик будем использовать верхнюю
+титул):
+
+\begin{equation}
+    \label{elhp:eq52}
+    \widetilde{E}_{ \alpha\beta \theta\lambda} =
+    \left< \left( \tau_{ \alpha\beta}^{ v_{\theta}} \right)_E^{ \overline{e}_{\lambda}}  \right> 
+\end{equation}
+
+поэтому величины 
+$ \left( B_{\alpha}^{ v_{\theta}} \right)_E^{ \overline{e}_{\lambda} - \overline{e}_{\eta}} $
+выражаются через упругие макрохарактеристики 
+(\ref{elhp:eq52})
+.
+
+Из симметрии констант 
+$E_{\beta\gamma \phi\psi}$
+по первому и второму индексам и из формул 
+(\ref{elhp:eq46})
+и 
+(\ref{elhp:eq51})
+следует симметрия констант 
+$ \widetilde{\zeta}_{\beta\gamma}$
+по нижнем индексам:
+
+\begin{equation}
+    \label{elhp:eq53}
+    \widetilde{\zeta}_{\beta\gamma} 
+    =
+    \widetilde{\zeta}_{\gamma\beta} 
+\end{equation}
+
+Для констант 
+$ \widetilde{\zeta}_{\beta\gamma}$
+выбрано обозначение, использующее тильду, т.к. в дальнейшем станет
+понятно, что они обладают определенным физическим смыслом, они образуют собой тензор
+второго порядка, который равен свертке тензора макро упругих констант на тензор макро
+коэффициентов температурного расширения. Таким образом, эти константы являются
+характеристиками макросреды, а для обозначения величин, связанных с макросредой, мы
+всегда используем титлу.
+
+Закон термоупругости для однородной макросреды. Для n=1 формула для
+напряжений имеет вид
+
+\begin{equation}
+    \label{elhp:eq54}
+    \sigma_{\gamma\beta} =
+    \sum_{ \phi \in \{x,y,z\} } 
+    \left( 
+        \sum_{ \lambda \in \{x,y,z\} }
+        \left( \tau_{\gamma\beta}^{v_{\phi}} \right)^{ \overline{e}_{\lambda}} 
+        \frac{ \partial v_{\phi}}{ \partial \lambda} \varepsilon
+        +
+        \sum_{ k_x+k_y+k_z = 2 }
+        \left( \tau_{\gamma\beta}^{v_{\phi}} \right)^{ \overline{k}} 
+        \frac{ \partial^2 v_{\phi}}{ \partial \overline{r}^{ \overline{k} } } \varepsilon^2
+    \right) 
+\end{equation}
+
+Усредним по периодической ячейке компоненты тензора напряжений 
+(\ref{elhp:eq54})
+и
+рассмотрим величины содержащие только первые степени малого параметра 
+$\varepsilon$
+, введем для
+них обозначения такие же как и для компонент тензора напряжений, но содержащие сверху
+знак титлы:
+
+\begin{equation}
+    \label{elhp:eq55}
+    \widetilde{\sigma_{\gamma\beta}} =
+    \sum_{ \phi \in \{x,y,z\} } 
+    \left( 
+        \sum_{ \lambda \in \{x,y,z\} }
+        \left< 
+        \left( \tau_{\gamma\beta}^{v_{\phi}} \right)^{ \overline{e}_{\lambda}} 
+        \right> 
+        \frac{ \partial v_{\phi}}{ \partial \lambda} \varepsilon
+    \right) 
+\end{equation}
+
+Введенные обозначения показывают, что данные величины являются первым асиптотическим
+приближением к средним напряжениям 3d-периодической среды. Далее
+покажемб что их значения сами по себе могут трактоваться как компоненты тензора
+напряженийб возникающих в однородной термоупругой средеб или говоря иначеб 
+$ \widetilde{\sigma}_{\gamma\beta}$
+в 
+уравнения равновесия 
+(\ref{elhp:eq8})
+и проверим равняется ли левая часть нулю:
+
+\begin{equation}
+    \label{elhp:eq56}
+    \begin{gathered}
+        \sum_{\beta} \frac{ \partial \widetilde{\sigma}_{ \alpha\beta}} { \partial \beta}
+            \varepsilon + f_{\alpha} \left( \overline{r}  \right) =
+            \sum_{ \beta,\phi \in \{x,y,z\} }
+    \left( 
+        \sum_{ \lambda \in \{x,y,z\} }
+        \left< 
+        \left( \tau_{\alpha\beta}^{v_{\phi}} \right)^{ \overline{e}_{\lambda}} 
+        \right> 
+        \frac{ \partial^2 v_{\phi}}
+        { \partial \overline{r}^{ \overline{e}_{\lambda} + \overline{e}_{\beta}} } \varepsilon^2
+    \right) 
+    + f_{\alpha} \left( \overline{r}  \right)
+    = \\
+            \sum_{\phi \in \{x,y,z\} }
+    \left( 
+        \sum_{ \lambda, \eta \in \{x,y,z\} }
+        \left( 
+            \sum{ \beta \in \{x,y,z\} }
+        \left< 
+        \left( \tau_{\alpha\beta}^{v_{\phi}} \right)^{\overline{e}_{\lambda} + \overline{e}_{\eta} - \overline{e}_{\beta}} 
+        \right> 
+        \right) 
+        \frac{ \partial^2 v_{\phi}}
+        { \partial \overline{r}^{ \overline{e}_{\lambda} + \overline{e}_{\eta}} } \varepsilon^2
+    \right) 
+    + f_{\alpha} \left( \overline{r}  \right)
+    = \\
+            \sum_{\phi \in \{x,y,z\} }
+    \left( 
+        \sum_{ \lambda, \eta \in \{x,y,z\} }
+        \left( B_{\alpha}^{ v_{\theta}} \right)_E^{ \overline{e}_{\lambda} + \overline{e}_{\eta}} 
+        \frac{ \partial^2 v_{\phi}}
+        { \partial \overline{r}^{ \overline{e}_{\lambda} + \overline{e}_{\eta}} } \varepsilon^2
+    \right) 
+    + f_{\alpha} \left( \overline{r}  \right)
+    \end{gathered}
+\end{equation}
+
+последнее равенство следует из уравнения 
+(\ref{elhp:eq37})
+.
+Таким образом мы получили равенство:
+
+\begin{equation}
+    \label{elhp:eq57}
+        \sum_{\beta} \frac{ \partial \widetilde{\sigma}_{ \alpha\beta}} { \partial \beta}
+            \varepsilon + f_{\alpha} \left( \overline{r}  \right) = 0
+            , \; \alpha \in \{x,y,z\}
+\end{equation}
+
+Равенство 
+(\ref{elhp:eq57})
+означает, что макронапряжения 
+$ \widetilde{\sigma}_{ \alpha\beta}$
+, подобно компонентам действительного
+тензора напряжений, удовлетворяют уравнениям равновесия для некоторой однородной
+средый, которую мы будем называть макросредой, и на которую действуют объемные
+макросилы 
+$f_{\alpha} \left( \overline{r}  \right) $
+. Для макросреды в соответствии с формулами Коши может быть введен
+тензор деформаций, вычисляемый по ее макроперемещениям:
+
+\begin{equation}
+    \label{elhp:eq58}
+    \widetilde{e}_{ \alpha\beta} =
+    \frac{1}{2} 
+    \left( 
+        \frac{ \partial v_{\alpha}}{ \partial \beta} +
+        \frac{ \partial v_{\beta}}{ \partial \alpha}
+    \right) 
+\end{equation}
+
+Тогда равенство для макронапряжений 
+(\ref{elhp:eq55})
+с учетом формул 
+(\ref{elhp:eq43})
+, 
+(\ref{elhp:eq52})
+, 
+(\ref{elhp:eq55})
+может быть
+переписано в следующем виде:
+
+\begin{equation}
+    \label{elhp:eq59}
+    \widetilde{\sigma}_{ \alpha\beta} =
+    \sum_{ \theta,\lambda \in \{x,y,z\} }
+    \widetilde{E}_{ \alpha\beta \theta\lambda} 
+    \widetilde{e}_{ \theta\lambda} -
+    \widetilde{\zeta}_{ \alpha\beta} 
+    T_0 \left( \overline{r}  \right) 
+\end{equation}
+
+Введем тензор второго порядка
+$ \widetilde{\alpha}_{\theta\lambda}$
+, который по определению удовлетворяет равенству:
+
+\begin{equation}
+    \label{elhp:eq60}
+    \sum_{ \theta,\lambda \in \{x,y,z\} }
+    \widetilde{E}_{ \alpha\beta \theta\lambda}
+    \widetilde{\alpha}_{ \theta\lambda}^{\psi} =
+    \widetilde{\zeta}_{ \alpha\beta}
+\end{equation}
+
+Этот тензор определён однозначно в силу обратимости тензора макроуругих констант 
+$ \widetilde{E}_{ \alpha\beta \theta\lambda}$
+и являктся симметричным, в силу симметрий тензоров 
+$\ \widetilde{\zeta}_{ \alpha\beta}$
+и
+$ \widetilde{E}_{ \alpha\beta \theta\lambda}$
+
+(\ref{elhp:eq1}!\colorbox{yellow}{!!!!!!!!!!!!!!!!!!1})
+:
+
+\begin{equation}
+    \label{elhp:eq61}
+    \widetilde{\alpha}_{ \theta\lambda} =
+    \widetilde{\alpha}_{ \lambda\theta}
+\end{equation}
+
+Этот тензор в дальнейшем будем называть 
+$\xi$
+-тензором температурного расширения макро
+термо-упругой среды, т.к. равенство 
+(\ref{elhp:eq59})
+с помощью формулы 
+(\ref{elhp:eq60})
+превращается в закон
+Неймана-Дюамеля для макро термо-упругой среды:
+
+\begin{equation}
+    \label{elhp:eq62}
+    \widetilde{\sigma}_{ \alpha\beta} =
+    \sum_{ \theta,\lambda \in \{x,y,z\} }
+    \widetilde{E}_{ \alpha\beta \theta\lambda}
+    \left( 
+    \widetilde{e}_{ \theta\lambda} -
+    \widetilde{\alpha}_{ \theta\lambda}^{\psi} 
+    T_0 \left( \overline{r}  \right) 
+    \right) 
+\end{equation}
+
+Верхний индекс 
+$\xi$
+в обозначении коэффициентов 
+$ \widetilde{\alpha}_{ \theta\lambda}^{\xi}$
+используется для того, чтобы
+подчеркнуть их зависимость от распределения температуры внутри ячейки, по этой же
+причине тензор тмпературного расширения 
+$ \widetilde{\alpha}_{ \theta\lambda}^{\xi}$
+имеет смысл именовать 
+$\xi$
+-тензором
+температурного расширения.
+
+Таким образом задача 
+(\ref{elhp:eq34})
+-
+(\ref{elhp:eq35})
+о нахождении коэффициентов 
+$ {A}_{ \overline{e}_{\lambda}}^{ v_{\theta}} $
+может быть сформулирована иначе
+
+\begin{equation}
+    \label{elhp:eq63}
+    \int_V
+    \left( 
+        T_0 \left( \overline{r}  \right) -
+        \sum_{ \theta \in \{x,y,z\} }
+        \left( 
+            \sum_{ \eta \in \{x,y,z\} }
+            A_{v_{\theta}}^{ \overline{e}_{\eta}}
+            \frac{ \partial v_{\theta}}{ \partial \eta}
+            \varepsilon
+        \right)^2
+    \right) 
+    dV \rightarrow min
+\end{equation}
+
+при выполнении условий
+
+\begin{equation}
+    \label{elhp:eq64}
+        \sum_{\beta} \frac{ \partial \widetilde{\sigma}_{ \alpha\beta}} { \partial \beta}
+            \varepsilon + f_{\alpha} \left( \overline{r}  \right) = 0
+            , \; \alpha \in \{x,y,z\}
+\end{equation}
+
+а также при выполнении уравнения 
+(\ref{elhp:eq62})
+и граничных условий на поверхности тела;
+коэффициенты 
+$ \widetilde{\alpha}_{ \theta\lambda}^{\xi}$
+вычисляются по формулам 
+(\ref{elhp:eq51})
+, 
+(\ref{elhp:eq60})
+на основе решений ячейковых
+краевых задач 
+(\ref{elhp:eq39})
+, 
+(\ref{elhp:eq46})
+, 
+(\ref{elhp:eq41})
+-
+(\ref{elhp:eq43})
+. Далее ячейковые функции находятся по формулам 
+(\ref{elhp:eq44})
+,
+а напряжения по формулам 
+(\ref{elhp:eq54})
+.

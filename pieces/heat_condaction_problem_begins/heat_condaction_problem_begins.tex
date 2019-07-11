@@ -1,0 +1,427 @@
+\begin{center}
+    \Huge{Асимптотическое расщепление задачи теплопроводности, начало}
+\end{center}
+
+\section{Введение}
+
+Рассмотрим тело вырезанное из 3-периодисческой твердотельной среды (рис ) на которое действуют какие-либо тепловые нагрузки, тогда внутри тела должно выполнятся
+стциотнарное уравнение теплового равновесия:
+\begin{equation}
+    \label{heat_equation}
+    \frac{\partial q_x}{\partial x} + \frac{\partial q_y}{\partial y} + \frac{\partial q_z}{\partial z} = -Q
+\end{equation}
+где 
+$Q$
+- обьемные источниеки тепла, 
+$q_\alpha$ 
+- компоненты вектора теплового потока внутри среды.
+На границеперехода от одной упругой среды к другой должны быть неперывны тепловой поток и температура:
+
+\begin{equation}
+    \label{hc_eq2}
+    \left[ q_\alpha \right] = 0, \left[ T \right] = 0, \alpha \in \{ x,y,z \}
+\end{equation}
+
+Внутри среды возникает анизатропный закон Фурье, содержащий 6 независимых коэффициенотв теплопроводности 
+$\lambda_{\alpha \beta}$:
+\begin{equation}
+    \label{hc_law}
+    q_{\alpha} = - \sum_{\beta \in \{x,y,z\}}\lambda_{\alpha \beta}\frac{\partial T}{\partial \beta}, \alpha \in \{x,y,z\}
+\end{equation}
+
+Пусть 
+$h$
+- линейный размер пвериодической ячейки, 
+$L$
+- характерный размер тела, 
+$T_{\ast}$ $\lambda_{\ast}$ 
+- характерные значения температуры и коэффициента 
+теплопроводности. Перрейдем к безразмерным переменным и функциям, для простоты не меняя обозначения:
+\begin{equation}
+x \leftrightarrow \frac{x}{L}, 
+y \leftrightarrow \frac{y}{L}, 
+z \leftrightarrow \frac{z}{L},
+T \leftrightarrow \frac{T}{T_{\ast}},
+\lambda_{\alpha \beta} \leftrightarrow \frac{\lambda_{\alpha \beta}}{\lambda_{\ast}},
+q \leftrightarrow \frac{q}{q},
+Q \leftrightarrow \frac{Q}{q}
+\end{equation}
+
+В дальнейщем будем считать, что отношение размера периодической ячейки упругой среды к характерному размеру тела является малым 
+параметром и обозначается буквой 
+$\varepsilon$:
+\begin{equation}
+    \varepsilon = \frac{h}{L} \ll 1
+\end{equation}
+
+Тогда уравнение 
+(\ref{heat_equation}) 
+и закон теплопроводности 
+(\ref{hc_law}) 
+в новых переменных примут вид:
+\begin{equation}
+    \frac{\partial q_x}{\partial x}\varepsilon + \frac{\partial q_y}{\partial y}\varepsilon + \frac{\partial q_z}{\partial z}\varepsilon = -Q
+\end{equation}
+
+\begin{equation}
+    q_{\alpha} = \sum_{\beta \in \{x,y,z\}}\lambda_{\alpha\beta} \frac{\partial T}{\partial \beta}\varepsilon, \alpha \in \{x,y,z\}
+\end{equation}
+
+Внутри каждой периядической ячейке вводятся свои ячейковые координаты 
+$\xi_x$, $\xi_y$, $\xi_z$:
+\begin{equation}
+    \label{cell_coor}
+    \alpha=\alpha_i + \xi_{\alpha}\varepsilon, \; \xi_{\alpha} \in \{0,1\}, \; \alpha \in \{x,y,z\}
+\end{equation}
+
+Где - 
+$\alpha_i$ 
+координаты i-ой периодической ячейки. Коэффициэты теплопроводности 3-периодической среды являются функциями только ячейковых координат 
+$\xi$:
+\begin{equation}
+    \lambda_{\alpha \beta} = \lambda_{\alpha \beta}(\xi_x, \xi_y, \xi_z)
+\end{equation}
+
+С учетом равеннства 
+(\ref{cell_coor}) 
+оператор частрого дифференциирования принимает вид:
+\begin{equation}
+    \label{diff_oper}
+    \frac{\partial}{\partial \alpha}=\frac{\partial}{\partial \alpha} + \frac{1}{\varepsilon}\frac{\partial}{\partial \xi_{\alpha}}, \; \alpha \in \{x,y,z\}
+\end{equation}
+
+Задача 
+(\ref{heat_equation})
+-
+(\ref{hc_law})
+с учетом формулы 
+(\ref{diff_oper})
+принимает втд:
+\begin{equation}
+    \label{heat_equation_epsilon}
+    \frac{q_x}{\partial x}\varepsilon+
+    \frac{q_y}{\partial y}\varepsilon+
+    \frac{q_z}{\partial z}\varepsilon+
+    \frac{q_x}{\partial \xi_x}+
+    \frac{q_y}{\partial \xi_y}+
+    \frac{q_z}{\partial \xi_z}=
+    -Q
+\end{equation}
+
+Условия на границе перехода от одной упругой среды к другой:
+\begin{equation}
+    \left[ q_\alpha \right] = 0, \left[ T \right] = 0, \alpha \in \{ x,y,z \}
+\end{equation}
+
+Закон теплопролводности:
+\begin{equation}
+    \label{hc_law_epsilon}
+    q_{\alpha}=\sum_{\beta \in \{x,y,z\}}\lambda_{\alpha \beta}\left(\frac{\partial T}{\partial \beta}\varepsilon+\frac{\partial T}{\partial \xi_{\beta}}\right), \:
+    \alpha \in \{x,y,z\}
+\end{equation}
+
+Для решения задачи 
+(\ref{heat_equation_epsilon})
+-
+(\ref{hc_law_epsilon})
+используем метод асимптотического расщепления. Для этого представим асимптотические приближения температуры и компонент теплового потока,
+как суммы частных дифференциальных операторов, коэффициенты которых зависят только от ячейковых переменных:
+
+\begin{equation}
+    \label{asimp_T_q}
+    \begin{aligned}
+        T^{(n)} = 
+        \sum^n_{k=0} \left( \sum_{k_x+k_y+k_z=k} \Psi^{\overline{k}}(\overline{\xi})  
+        \frac{\partial^kT^{(n)}_0}{\partial \overline{r}^{\overline{k}}}\varepsilon^k \right) ,
+        \\
+        q^{(n)}_{\alpha} = 
+        \sum^n_{k=0} \left( \sum_{k_x+k_y+k_z=k} K^{\overline{k}}_{\alpha}(\overline{\xi})  
+        \frac{\partial^kT^{(n)}_0}{\partial \overline{r}^{\overline{k}}}\varepsilon^k \right)
+    \end{aligned}
+\end{equation}
+
+где использованы следующие обозначения
+\begin{equation}
+    \begin{gathered}
+        \partial \overline{r}^{\overline{k}} = \partial x^k \partial y^k \partial z^k, \;
+        \overline{k} = (k_x,k_y,k_z) = k_x \overline{e}_x+k_y \overline{e}_y+k_z \overline{e}_z,
+        \\
+        |\overline{k}| = k = k_x+k_y+k_z, \; \overline{r} = (x.y.z) = x \overline{e}_x + y \overline{e}_y + z \overline{e}_z,
+        \\
+        \overline{\xi} = \left( \xi_x + \xi_y, + \xi_z \right) = \xi_x \overline{e}_x + \xi_y \overline{e}_y + \xi_z \overline{e}_z
+    \end{gathered}
+\end{equation}
+
+
+Будем считать, что объёмные силы имеют расщепленный вид относительно переменных среды макросреды и ячейковых переменных:
+
+\begin{equation}
+    \label{volum_force}
+    Q \left( \overline{r}, \overline{\xi} \right) = \kappa \left( \overline{\xi} \right) Q_0 \left( \overline{r} \right)
+\end{equation}
+
+причем равнодействующие сомножителя, зависят от быстрых переменных, на ячейке равняется еденице:
+
+\begin{equation}
+    \label{integ_vf}
+    \int_0^1 \int_0^1 \int_0^1 \kappa \left( \overline{\xi} \right) d\xi_x d\xi_y d\xi_z = 1
+\end{equation}
+
+В дальнейшем интнграл от какой-то величины по ячейковым переменным, взятых по всей ячейке, будем называть усреднением этой величины по ячейке и обозначать:
+
+\begin{equation}
+    \left< \_ \right> = \int_0^1 \int_0^1 \int_0^1 \_ d\xi_x d\xi_y d\xi_z = 1
+\end{equation}
+
+А из равенства 
+(\ref{volum_force})
+-
+(\ref{integ_vf})
+следует что величина имеет физический смысл - это среднее значение теплового источника, т.е. 
+это тепловой источник макросреды:
+\begin{equation}
+    Q_0 \left( \overline{r} \right) = \left<  Q \left( \overline{r}, \overline{\xi} \right) \right>
+\end{equation}
+
+Далее введем предположение, что тепловой источник макросреды также может быть разложен в степень дифференциальных операторов:
+\begin{equation}
+    \label{asimp_Q}
+    Q_0 \left( \overline{r} \right) = \sum^n_{k=0} \left( \sum_{k_x+k_y+k_z=k} \Lambda^{ \overline{k}} \frac{\partial^k T^{(n)}_0}{\partial \overline{r}^{ \overline{k}}} \right)
+    , \; \alpha \in \{x,y,z\}
+\end{equation}
+
+где 
+$\Lambda^{ \overline{k}}$ 
+- некоторые константы с векторним вкрхним индексом, которые будут определены позднее.
+
+Подставим формулы 
+(\ref{asimp_T_q})
+,
+(\ref{volum_force})
+и 
+(\ref{asimp_Q})
+в равенства 
+(\ref{heat_equation_epsilon})
+-
+(\ref{hc_law_epsilon}) и 
+приравняем коэффициенты при одинакрвых дифференциальных операторах, получим систему уравнений в частных проиезводных
+на неизвестные ячейковые функции:
+уравнения теплового равновесия ячейки
+
+\begin{equation}
+    \label{eq_eq_cell}
+    \frac{\partial K^{ \overline{k}}_x}{\partial \xi_x}+
+    \frac{\partial K^{ \overline{k}}_y}{\partial \xi_y}+
+    \frac{\partial K^{ \overline{k}}_z}{\partial \xi_z}+
+    K^{ \overline{k}- \overline{e}_x}_x+
+    K^{ \overline{k}- \overline{e}_y}_y+
+    K^{ \overline{k}- \overline{e}_z}_z=
+    -\kappa \left( \overline{\xi} \right) \Lambda^{ \overline{k}}
+\end{equation}
+
+закон теплопроводности внутри периодической ячейки
+
+\begin{equation}
+    K^{ \overline{k}}_{\alpha} \left( \xi \right) = 
+    - \sum_{\beta \in \{x,y,z\}} \lambda_{\alpha\beta} 
+    \left(  \frac{\partial \Psi^{ \overline{k}}}{\partial \xi_{\beta}} + \Psi^{ \overline{k} - \overline{e}_{\beta}}\right)
+    , \; \alpha \in \{x,y,z\}
+\end{equation}
+
+условия сопряжения терловых потоков и температур внутри ячейки
+
+\begin{equation}
+    \left[  K^{ \overline{k}}_n \right] = 0, \; \left[  \Psi^{ \overline{k}}\right] = 0
+\end{equation}
+
+из условия периодичесности ячейковых функций
+
+\begin{equation}
+    \label{periodic_cell}
+    \left. \Psi^{ \overline{k}} \left( \overline{\xi} \right) \right|_{\xi_{\alpha}=0} =
+    \left. \Psi^{ \overline{k}} \left( \overline{\xi} \right) \right|_{\xi_{\alpha}=1}, \;
+    \left. K^{ \overline{k}} \left( \overline{\xi} \right) \right|_{\xi_{\alpha}=0} =
+    \left. K^{ \overline{k}} \left( \overline{\xi} \right) \right|_{\xi_{\alpha}=1}
+    , \; \alpha \in \{x,y,z\}
+\end{equation}
+
+Выражение 
+(\ref{eq_eq_cell})
+-
+(\ref{periodic_cell})
+для каждого фиксированного целочисленного вектора 
+$ \overline{k} $
+представляют собой краевую эллиптическую задачу на нахождение 
+периодических ячейковых функций 
+$ \Psi^{ \overline{k}} $
+. Необходимое условие разрешимости этой задачи имеет вид:
+
+\begin{equation}
+    \label{solv_cond}
+    \Lambda^{ \overline{k}} = - \left< K^{ \overline{k} - \overline{e}_x}_x + K^{ \overline{k} - \overline{e}_y}_y + K^{ \overline{k} - \overline{e}_z}_z \right> 
+\end{equation}
+
+При 
+$k=0$
+решение задачи 
+(\ref{eq_eq_cell})
+-
+(\ref{solv_cond})
+имеет очевидное решение:
+
+\begin{equation}
+    \label{psi_one}
+    \Psi^{ \overline{0}} = 1, ;\ K^{ \overline{0}}
+    , \; \alpha \in \{x,y,z\}
+\end{equation}
+
+Тогда из 
+(\ref{solv_cond})
+следует равенство
+
+\begin{equation}
+    \label{lambda_zero}
+    \Lambda^{ \overline{k}} = 0, \left| \overline{k} \right| 
+\end{equation}
+
+Равенство 
+(\ref{asimp_Q})
+с учетом равенста 
+(\ref{lambda_zero})
+имеет вид
+
+\begin{equation}
+    \label{asimp_Q_2}
+    \sum^n_{k=2} \left( \sum_{k_x+k_y+k+z=k} \Lambda^{ \overline{k}} \frac{\partial^k T^{(n)_0}}{\partial \overline{r}^{ \overline{k}}} \right) =
+    Q_0 \left( \overline{r} \right) 
+\end{equation}
+
+Данное равенство представляет соьбой уравнение на n-е приближение температуры макросреды 
+$T^{(n)}_0$
+. Уравнение представдялет собой уравнение в частных
+производных, оно имеет порядок n, теория таких уравнений рассмотрена в 
+\colorbox{yellow}{(ССЫЛКО!!!)}
+, в частности, из нее следует, что асимптотический смысл имеет не 
+все решения этого уравнения, а только часть из них, регулярно зависящая от малого параметра 
+$\varepsilon$
+, а это означат, что данное уравнение
+имеет действительный порядок равный двум.
+Формулы 
+(\ref{asimp_T_q})
+с учетом равенств 
+(\ref{psi_one})
+принимают вид
+
+\begin{equation}
+    \label{asimp_T_q_2}
+    \begin{aligned}
+        T^{(n)} = T^{(n)}_0 +
+        \sum^n_{k=1} \left( \sum_{k_x+k_y+k_z=k} \Psi^{\overline{k}}(\overline{\xi})  
+        \frac{\partial^kT^{(n)}_0}{\partial \overline{r}^{\overline{k}}}\varepsilon^k \right) ,
+        \\
+        q^{(n)}_{\alpha} = 
+        \sum^n_{k=1} \left( \sum_{k_x+k_y+k_z=k} K^{\overline{k}}_{\alpha}(\overline{\xi})  
+        \frac{\partial^kT^{(n)}_0}{\partial \overline{r}^{\overline{k}}}\varepsilon^k \right)
+    \end{aligned}
+\end{equation}
+
+эти равенства являются формулами для вычисления температуры и компонент теплового потока в периодической среде на основе решения уравнения 
+(\ref{asimp_Q_2})
+и краевых задач 
+(\ref{eq_eq_cell})
+-
+(\ref{solv_cond})
+. Величина 
+$T^{(n)}_0$ 
+имеет физический смысл, она является средним значением распределения температуры на ячейке, т.е. эта величина является 
+температурой однородной макросреды:
+
+\begin{equation}
+    T^{(n)}_0 = \left< T^{(n)} \left( \overline{r}, \overline{\xi} \right)  \right> 
+\end{equation}
+
+Наибольший интерес в любой асимптотической теории представляют самые первые приближения, в данном случае это 
+$n=2$
+. Усреднми вектор теплового потока 
+(\ref{asimp_T_q_2})
+при 
+$n=2$
+и рассмотрим его первое приближение, в дальнейшем верхние индексы, указывающие на номера асимптотического приближения, опускаем:
+
+\begin{equation}
+    \label{asimp_q_n_2}
+    \widetilde{q}_{\alpha} = 
+    \sum_{\phi \in \{x,y,z\}} \left< K^{ \overline{e}_{\phi}}_{\alpha} \left( \overline{\xi} \right)  \right> 
+    \frac{\partial T_0}{\partial \phi} \varepsilon
+    , \; \alpha \in \{x,y,z\}
+\end{equation}
+
+Можно показать, что этот вектор удовлетворяет следующему уравнению теплового баланса:
+
+\begin{equation}
+    \label{eq_eq_meta}
+    \frac{\partial \widetilde{q}_x}{\partial x}\varepsilon + 
+    \frac{\partial \widetilde{q}_y}{\partial y}\varepsilon + 
+    \frac{\partial \widetilde{q}_z}{\partial z}\varepsilon = -Q
+\end{equation}
+
+В уравнении 
+(\ref{eq_eq_meta}) 
+спрва стоит тепловой источник макросреды, вектор 
+$ \widetilde{q}_{\alpha}$ 
+зависит только от переменных макросреды, поэтому можно считать, 
+что вектор 
+$ \widetilde{q}_{\alpha}$ 
+- это вектор теплового потока в однородной макросреде, а уравнение 
+(\ref{asimp_q_n_2}) 
+- это закон теполопроводности в макросреде, это уравнение может быть переписано
+в виде:
+
+\begin{equation}
+    \widetilde{q}_{\alpha} = - \sum_{ \phi \in \{x,y,z\} } \widetilde{\lambda}_{\alpha\phi} \frac{\partial T_0}{\partial \phi} \varepsilon
+\end{equation}
+
+где 
+$ \widetilde{\lambda}_{\alpha\phi}$ 
+- коэффициент теплопроводности макросреды, они рассчитываются на омнове решений данных ячейковых краевых задач:
+
+\begin{equation}
+    \widetilde{\lambda}_{\alpha\phi} = - \left< K^{ \overline{e}_{\phi}}_{\alpha} \left( \overline{\xi} \right) \right> 
+    , \; \alpha,\phi \in \{x,y,z\} 
+\end{equation}
+
+Для расчета коэффициентов теплопроводности макросреды необходимо решить следующие три краевые задачи на ячейке:
+
+урввнение
+\begin{equation}
+    \frac{K^{ \overline{e}_{\phi}}_x}{\partial \xi_x} +
+    \frac{K^{ \overline{e}_{\phi}}_y}{\partial \xi_y} +
+    \frac{K^{ \overline{e}_{\phi}}_z}{\partial \xi_z} = 0,
+    \phi \in \{x,y,z\} 
+\end{equation}
+
+закон теплопроводности на ячейке
+\begin{equation}
+    K^{ \overline{e}_{\phi}}_{\alpha} \left( \overline{\xi} \right) =
+    - \sum_{ \beta \in \{x,y,z\} } \lambda_{\alpha\beta}
+    \left( \frac{\partial \Psi^{ \overline{e}_{\phi}}}{\partial \xi_{\beta}} + \delta^{\phi}_{\beta} \right) 
+\end{equation}
+
+условие непрерывности на границах раздела матрицы и включений
+\begin{equation}
+    \left[  K^{ \overline{e}_{\phi}}_n \right] = 0, \; \left[  \Psi^{ \overline{e}_{\phi}}\right] = 0
+    , \; \phi \in \{x,y,z\}
+\end{equation}
+
+условие периодичности ячейковых функций
+\begin{equation}
+    \begin{gathered}
+    \left. \Psi^{ \overline{e}_{\phi}} \left( \overline{\xi} \right) \right|_{\xi_{\alpha}=0} =
+    \left. \Psi^{ \overline{e}_{\phi}} \left( \overline{\xi} \right) \right|_{\xi_{\alpha}=1}, \;
+    \left. K^{ \overline{e}_{\phi}} \left( \overline{\xi} \right) \right|_{\xi_{\alpha}=0} =
+    \left. K^{ \overline{e}_{\phi}} \left( \overline{\xi} \right) \right|_{\xi_{\alpha}=1},
+    \\
+    \alpha,\phi \in \{x,y,z\}
+    \end{gathered}
+\end{equation}
+
