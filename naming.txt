@@ -1,0 +1,8 @@
+ch - глава
+eq - формула
+tb - таблица
+fg - рисунок
+
+xx:ch[n]/sec[n]
+xx:ch[n]/sec[n]/sub[n]
+xx:ch[n]/sec[n]/name (xx:ch[n]/sec[n]/eq1)
